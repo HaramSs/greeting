@@ -1,9 +1,13 @@
-package shop.samdul.greeting.controller;
+package shop.samdul.greeting;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import shop.samdul.greeting.model.People;
+
+import java.util.Stack;
 
 @Controller
 @Slf4j
@@ -19,7 +23,6 @@ public class GreetingController {
     @GetMapping("/greeting")
     public String greeting(@RequestParam(value = "name", required = false) String name, Model model) {
 
-        String peopleStack;
         /* name 의 값이 들어 올 경우*/
         if (name != null && !name.isEmpty()) {
             Integer num = 0;
