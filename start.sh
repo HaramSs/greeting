@@ -1,7 +1,7 @@
 #!/bin/bash
 
-JAR_FILE_NAME=greeting-0.1.0-SNAPSHOT.jar
-#JAR_PATH=/path/to/your/jar # Update this to your JAR file path
+JAR_FILE_NAME=greeting-0.0.1-SNAPSHOT.jar
+JAR_PATH=/home/ubuntu # Update this to your JAR file path
 
 # Get the PID from the file
 PID=$(pgrep -f $JAR_FILE_NAME)
@@ -17,5 +17,5 @@ fi
 
 # Starting the application again
 echo "> 애플리케이션을 다시 시작합니다..."
-nohup java -jar $JAR_FILE_NAME > /dev/null 2>&1 &
+nohup java -jar $JAR_PATH/$JAR_FILE_NAME > $JAR_PATH/server.log 2>&1 &
 echo "> 애플리케이션이 백그라운드에서 실행 중입니다."
